@@ -25,17 +25,6 @@ public class App {
     	String chat = "";
     	File f = new File("recent.dat");
     	if(f.exists() && !f.isDirectory()) {} else f.createNewFile();
-    	/*String recent[] = new String[countLines("recent.dat")];
-    	logger("Inserit the token of the bot.\nRecent tokens: \n");
-    	try(BufferedReader br = new BufferedReader(new FileReader("recent.dat"))) {
-    		int i = 0;
-    	    for(String line; (line = br.readLine()) != null; ) {
-    	    	String[] res = line.split(";");
-    	        recent[i] = res[0];
-    	        logger("/"+i+" "+line);
-    	        i++;
-    	    }
-    	}*/
     	FileReader fileReader;
         fileReader = new FileReader("recent.dat");
 		BufferedReader bufferedReader = new BufferedReader( fileReader );
@@ -52,23 +41,6 @@ public class App {
 			fileWriter.close();
     	}
     	TelegramBot bot = TelegramBotAdapter.build(temp);
-    	/*boolean already = true;
-    	if(temp.charAt(0)=='/') temp = recent[Character.getNumericValue(temp.charAt(1))];
-    	TelegramBot bot = TelegramBotAdapter.build(temp);
-    	if(already){
-    		File fout = new File("recent.dat");
-    		FileOutputStream fos = new FileOutputStream(fout);
-    		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
-    		try(BufferedReader br = new BufferedReader(new FileReader("recent.dat"))) {
-    		    for(String line; (line = br.readLine()) != null; ) {
-    		    	logger("This is a new token! Name for save it? ");
-    		        bw.write(line +";  ("+ sc.nextLine()+")");
-    		        bw.newLine();
-    		    }
-    		    bw.write(temp);
-    		    bw.close();
-    		}
-    	}*/
     	while(true){
         	loggerL(chat+">");
         	in = sc.nextLine();
@@ -124,6 +96,4 @@ public class App {
     public static void loggerL(String text){
     	System.out.print(text);
     }
-    //@MultychatNews [CLINIC OF EVIL #1 w/Debe - Fra  &#91CUSTOM MAP #71&#93](https://youtu.be/RSgsaYSGikI)
-    //@MultychatNews <a href="https://youtu.be/RSgsaYSGikI">CLINIC OF EVIL #1 w/Debe - Fra  [CUSTOM MAP #71]</a>
 }
